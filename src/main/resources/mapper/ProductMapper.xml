@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ydz.fuckings.business.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.ydz.fuckings.business.model.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="product_nbr" jdbcType="VARCHAR" property="productNbr" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_price" jdbcType="DOUBLE" property="productPrice" />
+    <result column="product_class_id" jdbcType="VARCHAR" property="productClassId" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="imgs" jdbcType="VARCHAR" property="imgs" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="states" jdbcType="VARCHAR" property="states" />
+    <result column="product_desc" jdbcType="LONGVARCHAR" property="productDesc" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+  </resultMap>
+  <!-- 删除 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yf_product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <!-- 添加 -->
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ydz.fuckings.business.model.Product" useGeneratedKeys="true">
+    insert into yf_product (product_nbr, product_name, product_price, 
+      product_class_id, img, imgs, 
+      create_date, 
+      product_desc)
+    values (#{productNbr,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{productPrice,jdbcType=DOUBLE}, 
+      #{productClassId,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{imgs,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=DATE}, 
+      #{productDesc,jdbcType=LONGVARCHAR})
+  </insert>
+  
+  <!-- 修改 -->
+  <update id="updateByPrimaryKey" parameterType="com.ydz.fuckings.business.model.Product">
+    update yf_product
+    <set>
+    	<if test="productName!=null and productName!=''">
+    		product_name = #{productName,jdbcType=VARCHAR},
+    	</if>
+    	<if test="productPrice!=null and productPrice!=0">
+    		 product_price = #{productPrice,jdbcType=DOUBLE},
+    	</if>
+    	<if test="productClassId!=null  and productClassId!='' and productClassId!=0">
+    		 product_class_id = #{productClassId,jdbcType=VARCHAR},
+    	</if>
+    	<if test="img!=null and img!=''">
+    		img = #{img,jdbcType=VARCHAR},
+    	</if>
+    	<if test="imgs!=null and imgs!=''">
+    		 imgs = #{imgs,jdbcType=VARCHAR},
+    	</if>
+    	<if test="states!=null and states!=''">
+    		states = #{states,jdbcType=VARCHAR},
+    	</if>
+    	<if test="productDesc!=null and productDesc!=''">
+    		product_desc = #{productDesc,jdbcType=LONGVARCHAR}
+    	</if>
+    </set>
+      where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- ID查询 -->
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, product_nbr, product_name, product_price, product_class_id, img, imgs, 
+    create_date, state, states, product_desc
+    from yf_product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 分页条件查询 -->
+  <select id="selectAll"  parameterType="com.ydz.fuckings.business.model.Product" resultMap="BaseResultMap">
+    select yp.id, yp.product_nbr, yp.product_name, yp.product_price, yp.product_class_id, yp.img, yp.imgs, 
+    yp.create_date, yp.state, yp.states, yp.product_desc,ycd.class_name
+    from yf_product yp left join yf_class_dom ycd on yp.product_class_id = ycd.id
+    where yp.state='E' 
+    <if test="productNbr!=null and productNbr!=''">
+    	and yp.product_nbr=#{productNbr}
+    </if>
+    <if test="productName!=null and productName!=''">
+    	and yp.product_name  like '%${productName}%'
+    </if>
+    <if test="productClassId!=null and productClassId!='' and productClassId!=0">
+    	and yp.product_class_id=#{productClassId}
+    </if>
+    <if test="states!=null and states!=''">
+    	and yp.states=#{states}
+    </if>
+    order by yp.create_date desc
+  </select>
+  
+  
+</mapper>

@@ -1,0 +1,455 @@
+ <div>
+     <h3>系统配置 / 菜单管理</h3>
+ </div>
+
+<hr>
+
+<div class="search">
+	  <div class="input-group">
+		  <span class="input-group-addon">订单号</span>
+		  <input type="text" class="form-control" placeholder="姓氏">
+		   <span class="input-group-addon">名称</span>
+		  <input type="text" class="form-control" placeholder="姓氏">
+		   <span class="input-group-addon">手机号</span>
+		  <input type="text" class="form-control" placeholder="姓氏">
+		   <span class="input-group-addon">支付方式</span>
+		  <input type="text" class="form-control" placeholder="姓氏">
+	</div>
+	
+	<div class="input-group">
+            <span class="input-group-addon">地址</span>
+            <select class="form-control">
+              <option value="1">省份</option>
+              <option value="2">北京</option>
+              <option value="3">上海</option>
+              <option value="3">广州</option>
+            </select>
+            <span class="input-group-addon fix-border fix-padding"></span>
+            <select class="form-control">
+              <option value="1">市/县</option>
+              <option value="1">...</option>
+            </select>
+            
+            <span class="input-group-addon">支付方式</span>
+            <select class="form-control">
+              <option value="1">支付宝</option>
+              <option value="2">微信</option>
+            </select>
+       </div>
+       
+       <div>
+       		<button class="btn btn-primary" type="button" > 查  询 </button>
+       		<button class="btn btn-info" type="button" onclick="ydz.loadDom('/demo/createDemo')"> 添  加 </button>
+       		<button class="btn btn-warning" type="button"> 编  辑 </button>
+       		<button class="btn btn-danger" type="button"> 删  除 </button>
+       	</div>
+</div>
+
+<hr>
+<!-- HTML 代码 -->
+<table class="table datatable" style="word-break:break-all;">
+  <thead>
+    <tr>
+      <!-- 以下两列左侧固定 -->
+      <th data-width="80%">#</th> 
+      <th data-width="180%">订单号</th>
+	  <th data-width="80%">名称</th>
+	  <th data-width="100%">手机</th>
+	  <th data-width="140%">下单时间</th>
+	  <th data-width="80%">金额</th>
+	  <th data-width="80%">支付</th>
+	  <th data-width="80%">状态</th>
+      <th class="text-center text-important"  data-width="80%">评分</th>
+      <th class="text-center sort-disabled " data-col-class="text-primary" data-width="200%">操作</th>
+ 	 </tr>
+  </thead>
+  <tbody style="word-break:break-all;">
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ2388123498</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12 22:11:00</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#" data-toggle="modal" data-target="#myModal">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+     
+     <tr>
+    	<td>22566</td>
+    	<td>YDZ238812349843</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ238812349843</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+       <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+    <tr>
+    	<td>22566</td>
+    	<td>YDZ23881234984322</td>
+    	<td>张三</td>
+    	<td>18583158007</td>
+    	<td>2016-08-12</td>
+    	<td>777.00</td>
+    	<td>支付宝</td>
+    	<td>已付款</td>
+    	<td class="text-center ">9.9</td>
+    	<td class="text-center ">
+    		<a href="#">详情</a>
+    		<a href="#" disabled="disabled">发货</a>
+    		<a href="#" disabled="disabled">完成</a>
+    	</td>
+    </tr>
+  </tbody>
+</table>
+<!-- 分页插件 -->
+<div id="kkpager"></div>
+
+<!-- 对话框HTML -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+   <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+      <h4 class="modal-title">标题</h4>
+    </div>
+    <div class="modal-body">
+      <table class="table table-form">
+      	<tbody>
+      	<tr>
+	        <th class="w-80px">商品信息</th>
+	        <td>
+	            <div>
+	              <span><a href="/product/2.html" target="_blank">演示商品一</a></span>
+	              <span>价格：0.01 数量：1</span>
+	            </div>
+         	</td>
+      </tr>
+      <tr>
+        <th class="w-80px">快递详情</th>
+        <td>无</td>
+      </tr>
+      <tr>
+        <th class="w-80px">收货地址</th>
+        <td> 张三丰,位于湖北省西北部的十堰市丹江口市境内,15988898558,266555</td>
+      </tr> 
+      <tr>
+        <th class="w-80px">账号</th>
+        <td>demo</td>
+      </tr> 
+      <tr>
+        <th>状态</th>
+        <td>待付款</td>
+      </tr> 
+      <tr>
+        <th>金额</th>
+        <td>0.01</td>
+      </tr> 
+      <tr>
+        <th>交易方式</th>
+        <td>支付宝即时到帐</td>
+      </tr> 
+      <tr>
+        <th class="w-80px">买家留言</th>
+        <td></td>
+      </tr> 
+      <tr>
+        <th>下单时间</th>
+        <td>2015-09-28 10:58:19</td>
+      </tr> 
+     </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      <button type="button" class="btn btn-primary">保存</button>
+    </div>
+  </div>
+  </div>
+</div>
+

@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>邹氏宜品家具制造有限公司</title>
+    <meta name="description" content="这是一个首页">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <meta name="apple-mobile-web-app-title" content="YDZ UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="editor/css/wangEditor.min.css">
+    <link rel="stylesheet" href="css/pagination.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/tree.vue.css">
+  </head>
+
+<body id="" data-type="index" >
+
+
+    <header class="am-topbar am-topbar-inverse admin-header" id="indexhome">
+        <div class="am-topbar-brand">
+            <a href="javascript:;" class="tpl-logo">
+                <img src="assets/img/logo3.png" alt="" style="width: 400px">
+            </a>
+        </div>
+        <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+        </div>
+
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+             	
+             	<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="tpl-header-list-user-nick" id="name-x"></span><span class="tpl-header-list-user-ico"><!--  <img src="assets/img/user01.png"> --></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                     <!--    <li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
+                        <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li> -->
+                        <li><a href="javascript:void(0)" onclick="outLogin()"><span class="am-icon-power-off"></span> 退出</a></li>
+                    </ul>
+                </li>
+                <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+            </ul>
+        </div>
+        <div style="width: 1920px;height: 76px" hidden="hidden"></div>
+    </header>
+
+
+    <div class="tpl-page-container tpl-page-header-fixed">
+
+
+        <div class="tpl-left-nav tpl-left-nav-hover">
+            <div class="tpl-left-nav-title">
+               Menu
+            </div>
+            <div class="tpl-left-nav-list">
+                <ul class="tpl-left-nav-menu">
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:void(0)" onclick="ydz.loadDom('/template/home')" class="nav-link ment-active active">
+                            <i class="am-icon-home am-icon-fw"></i>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:void(0)" onclick="ydz.sysmenu.loadMenu('/template/home-page')" class="nav-link tpl-left-nav-link-list ment-active">
+                            <i class="am-icon-edit am-icon-fw"></i>
+                            <span>企业信息</span>
+                		</a>
+                    </li>
+                    
+                      <li class="tpl-left-nav-item">
+                        <a href="javascript:void(0)" onclick="ydz.sysmenu.loadMenu('banner/findAll')" class="nav-link tpl-left-nav-link-list ment-active">
+                            <i class="am-icon-photo am-icon-fw"></i>
+                            <span>广告配置</span>
+                		</a>
+                  	   </li>
+                  	   
+                  	  <li class="tpl-left-nav-item">
+                        <a href="javascript:void(0)" onclick="ydz.sysmenu.loadMenu('news/findAll')" class="nav-link tpl-left-nav-link-list ment-active">
+                            <i class="am-icon-newspaper-o am-icon-fw"></i>
+                            <span>企业动态</span>
+                		</a>
+                  	   </li>
+                    
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list ment-active">
+                            <i class="am-icon-mortar-board am-icon-fw"></i>
+                            <span>成功案例</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu">
+                            <li>
+                                <a href="javascript:void(0)" onclick="ydz.sysmenu.loadMenu('productclass/findAll')" class="ment-active">
+                                    <i class="am-icon-angle-right "></i>
+                                    <span>类别</span>
+                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+							</li>
+							 <li>
+                                <a href="#" href="javascript:void(0)" onclick="ydz.sysmenu.loadMenu('product/findAll')" class="ment-active">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>产品</span>
+                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+							</li>
+                        </ul>
+                    </li>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list ment-active">
+                            <i class="am-icon-wpforms am-icon-fw"></i>
+                            <span>订单留言</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu" >
+                            <li>
+                                <a href="javascript:void(0)" onclick="ydz.sysmenu.loadMenu('order/findAll')" class="ment-active">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>在线订单</span>
+                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+
+                                <a href="javascript:void(0)" onclick="ydz.sysmenu.loadMenu('join/findAll')" class="ment-active" >
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>在线留言</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:void(0)" onclick="ydz.sysmenu.loadMenu('sysuser/findAll')" class="nav-link tpl-left-nav-link-list ment-active">
+                            <i class="am-icon-key am-icon-fw"></i>
+                            <span>账号管理</span>
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+		<!-- 右侧内容 -->
+		<div class="content" id="content">
+		 
+		</div>
+    </div>
+
+	
+		
+	 <!-- 遮罩层 -->	
+	 <div id="loading">
+	 			
+			<div class='spinner'>
+				 <div class='rect1'></div>
+				<div class='rect2'></div>
+				<div class='rect3'></div>
+				<div class='rect4'></div>
+				 <div class='rect5'></div> 
+			</div> 
+		</div> 
+		
+		 <div id="loading-x">
+	 			
+			<div class='spinner-x'>
+			<img alt="" src="image/7.gif">
+			
+			</div> 
+		</div> 
+		
+<!-- 	 <div id="bg"></div>  -->
+	
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">
+      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+    </div>
+    <div class="am-modal-bd">
+     		Yes 操作成功啦！
+    </div>
+  </div>
+</div>
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal-error">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">
+      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+    </div>
+    <div class="am-modal-bd" style="color: #dd514c" id="your-modal-error-text">
+     		Sorry 操作失败啦！
+    </div>
+  </div>
+</div>
+
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm-delete">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">DELETE</div>
+    <div class="am-modal-bd">
+      你，确定要删除这条记录吗？
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+    </div>
+  </div>
+</div>
+</body>	
+	
+	<script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+ 	<script src="assets/js/echarts.min.js"></script>
+	<script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script type="text/javascript" src="editor/js/wangEditor.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/plupload.full.min.js"></script>
+    <script type="text/javascript" src="js/pagination.js"></script>
+    <script type="text/javascript" src="js/tree.vue.js"></script>
+    <script type="text/javascript" src="js/tree.vue.js"></script>
+    <script type="text/javascript" src="js/ydzutil.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+
+<script type="text/javascript">
+//初始化首页右侧内容
+$(function(){
+	var d = ydz.loadDom('template/home'); 
+	d.then(function(){
+		ydz.post({
+			url:"/sysuser/getSessionUser",
+			data:null,
+			succ:function(data){
+				$("#name-x").text(data.data.name);
+			}
+		})
+	})
+})
+
+function outLogin(){
+	ydz.post({
+		url:"/sysuser/outLogin",
+		data:null,
+		succ:function(data){
+			if(data.code==200){
+				window.location.href="/admin/login.html";
+			}else{
+				ydz.modalMsg("error");
+			}
+		}
+	})
+}
+</script>
+</html>

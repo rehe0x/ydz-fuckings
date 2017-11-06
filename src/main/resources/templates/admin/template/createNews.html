@@ -1,0 +1,54 @@
+	 <div class="tpl-content-wrapper"  id="">
+       	<div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                        发布动态
+                    </div>
+                </div>
+
+                <div class="tpl-block">
+
+                    <div class="am-g" id="bannerVue">
+                        <div class="tpl-form-body tpl-form-line">
+                            <form class="am-form tpl-form-line-form">
+                            	<div class="am-form-group">
+                                    <label for="" class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,50}$/"  id="" placeholder="请输入描述"  v-model="datas.news_title">
+                                        <small>请填写标题2-50字左右。</small>
+                                     </div>
+                                </div>
+                              
+ 
+                                
+                       			<div class="am-form-group">
+                                    <label for="user-email" class="am-u-sm-3 am-form-label">发布时间 <span class="tpl-form-line-small-title">Time</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" id="my-datepicker" validator="validator"  class="am-form-field tpl-form-no-bg" placeholder="发布时间"  v-model="datas.create_date" data-am-datepicker="" readonly required/>
+                                   		<small>请选择发布时间。</small>
+                                    </div>
+                                </div>
+
+                            
+                                
+                               <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">动态内容<span class="tpl-form-line-small-title">news_content</span></label>
+                                    <div class="am-u-sm-9">
+                           				<textarea id="textarea1"    style="height: 300px" validator="validator"  required regexp="/^.{20,}$/" ></textarea> 
+										<small>请填写关于内容文字20字以上。</small>
+                                    </div>
+                                </div>
+                                
+                                
+                               <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button"  v-on:click="saveNews($event)"  class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+						</div>
+                    </div>
+                </div>
+		</div>
+	</div>
+

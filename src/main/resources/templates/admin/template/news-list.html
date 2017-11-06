@@ -1,0 +1,68 @@
+<div class="tpl-content-wrapper"  id="banner-list">
+ 			<div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                       企业动态
+                    </div>
+                </div>
+                <div class="tpl-block">
+                    <div class="am-g">
+                        <div class="am-u-sm-12 am-u-md-6">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button type="button" class="am-btn am-btn-default am-btn-success" onclick="ydz.news.createNews()"><span class="am-icon-plus"></span> 新增</button>
+                            	</div>
+                            </div>
+                        </div>
+                         <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-form-group">
+                                
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-input-group am-input-group-sm">
+                                <input type="text" class="am-form-field">
+                                <span class="am-input-group-btn">
+					             <button  v-on:click="findPage()" class="am-btn  am-btn-default am-btn-success tpl-am-btn-success am-icon-search" type="button"></button>
+					          	</span>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="am-g">
+                        <div class="am-u-sm-12">
+                                <table class="am-table am-table-striped am-table-hover table-main">
+                                    <thead>
+                                        <tr>
+                                            <th>标题</th>
+                                            <th>内容</th>
+                                            <th>时间</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="listMap in datas">
+                                         	<td class="am-text-middle"><a href="#">{{listMap.news_title}}</a></td>
+                                            <td class="am-text-middle" ><a href="#" v-on:click="ydz.news.createNews(listMap.id)">查看</a></td>
+                                            <td class="am-text-middle">{{listMap.create_date}}</td>
+                                            <td class="am-text-middle">
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary" v-on:click="ydz.news.createNews(listMap.id)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" v-on:click="deleteNews(listMap.id)"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                 <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+
+                                
+                                <hr>
+						 </div>
+					</div>
+                </div>
+             </div>
+	</div>
+

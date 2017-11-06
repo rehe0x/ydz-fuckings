@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>关于易品</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+</head>
+<body>
+    <div class="a_container" id="indexhtml">
+        <div class="c_top"> 
+            <div class="main p_relative">
+                <div class="nav p_absolute">
+                    <a href="index.html">首页</a>
+                    <a href="about.html"  class="hoveractive">关于易品</a>
+                    <a href="companyinfo.html">企业动态</a>
+                    <a href="joinus.html">招商代理</a>
+                    <a href="online-order.html">在线订单</a>
+                    <a href="sucessproduct.html" class="mr10">成功案例</a>
+                </div>
+                <a href="#">
+                    <img src="images/logotop.png" class="logoyipin"/>
+                </a>
+            </div>
+        </div>
+        <div class="a_content">
+            <div class="main">
+                <div class="mabout_cont p_relative a_about">
+                        <h4><span class="title_borderl"></span>ABOUT US<span class="titleinfo">{{datas.about_title}}</span></h4>
+                    <div class="new_info_text">
+                        <div  class="a_info" v-html="datas.about_content">
+                        </div>
+                    </div>
+                    <img  class="about p_absolute" src="images/about.png">
+                </div>
+                <div class="mabout_cont p_relative acultrue">
+                    <h4><span class="title_borderl"></span>CULTURE<span class="titleinfo">{{datas.culture_title}}</span></h4>
+                    <div class="new_info_text">
+                        <div  class="a_info" v-html="datas.culture_content">
+                         
+                        </div>
+                    </div>
+                    <img src="images/culture.png"  class="culture p_absolute">
+                </div>
+
+            </div>
+        </div>
+        <div class="m_footer margin_t120">
+            <div class="main">
+                <p  class="gray_logo"><img src="images/1.png"></p>
+                <div class="m_footer_text">
+                    <div class="mfoot_info text_center">
+                        <a href="index.html">首页</a>
+                        <a href="about.html">关于易品</a>
+                        <a href="companyinfo.html">企业动态</a>
+                        <a href="sucessproduct.html" >公司产品</a>
+                        <a href="online-order.html">在线订单</a>
+                        <a href="joinus.html" class="mr50">招商代理</a>
+                    </div>
+                    <p class="elseinfo text_center">
+                        <strong>TELEPHONE</strong>
+                        <span class="paddingl12r32">联系我们</span>
+                        <strong class="mf_phone">{{datas.site_tel}}</strong>
+                    </p>
+                </div>
+                <p class="text_center publish">{{datas.copyright_title}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- 保证footer在底部的，如果内容层小于屏幕层高度-->
+    <script type="text/javascript" src="js/autofooter.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+ var app = new Vue({
+		el:'#indexhtml',
+		data:{
+			datas:{},
+		},
+		mounted:function(){
+			this.$nextTick(function () {
+				// 代码保证 this.$el 在 document 中
+				var self = this;
+			 	//初始化数据
+                ydz.post({
+    				url:"/about/getAbout",
+    				data:null,
+    				succ:function(data){
+    					self.datas=data.data;
+    					
+    				}
+    			})
+             })
+		},
+		created: function(){
+			
+		},
+	})  
+</script>

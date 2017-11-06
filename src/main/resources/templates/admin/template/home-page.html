@@ -1,0 +1,262 @@
+	 <div class="tpl-content-wrapper">
+          <!--   <div class="tpl-content-page-title">
+                企业信息配置
+            </div>
+            <br/> -->
+            <div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                        <!-- <span class="am-icon-code"></span> --> 在线编辑
+                    </div>
+                </div>
+
+                <div class="tpl-block">
+
+                    <div class="am-g" id="pageVue">
+                        <div class="tpl-form-body tpl-form-line">
+                            <form class="am-form tpl-form-line-form">
+                            	<div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">网站标题 <span class="tpl-form-line-small-title">site_title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,20}$/"  id="user-name" placeholder="请输入标题"  v-model="datas.site_title">
+                                        <small>请填写网站标题文字2-20字左右。</small>
+                                     </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">版权说明 <span class="tpl-form-line-small-title">copyright_title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,50}$/"  id="user-name" placeholder="请输入标题"  v-model="datas.copyright_title">
+                                        <small>请填写版权说明文字2-50字左右。</small>
+                                     </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">宣传语 <span class="tpl-form-line-small-title">slogan</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,200}$/"  id="user-name" placeholder="请输入宣传语"  v-model="datas.slogan">
+                                        <small>请填写宣传语文字2-200字左右。</small>
+                                     </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">联系电话 <span class="tpl-form-line-small-title">site_tel</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,20}$/"  id="user-name" placeholder="请输入联系电话"  v-model="datas.site_tel">
+                                        <small>请填写联系电话2-20字左右。</small>
+                                     </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">联系邮箱 <span class="tpl-form-line-small-title">site_email</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,50}$/"  id="user-name" placeholder="请输入联系邮箱"  v-model="datas.site_email">
+                                        <small>请填写联系邮箱2-50字左右。</small>
+                                     </div>
+                                </div>
+                                
+                                <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">客户代码<span class="tpl-form-line-small-title">service_code</span></label>
+                                    <div class="am-u-sm-9">
+                                        <textarea class="tpl-form-no-bg" rows="10" id=""  validator="validator"   v-text="datas.service_code" v-model="datas.service_code"></textarea>
+                                         <small>请填写客户代码。</small>
+                                    </div>
+                                </div>
+                                
+                                
+                                 <div class="am-form-group">
+                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">微信客户<span class="tpl-form-line-small-title">site_weimg</span></label>
+                                    <div class="am-u-sm-9">
+                                        <div class="am-form-group am-form-file">
+                                     		<div id="fileImg" validator="validator-img"  img-num="1">
+                                            	 <div class="tpl-form-file-img" v-if="datas.site_weimg!=''">
+	                                                <img :src="datas.site_weimg" alt="" >
+	                                             </div>
+	                                          </div>
+                                            <div>
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm"  id="browse">
+    										<i class="am-icon-cloud-upload"></i> 添加图片</button></div>
+    										<small>请上传一张图片。</small>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">关于标题 <span class="tpl-form-line-small-title">about_title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,20}$/"  id="user-name" placeholder="请输入标题文字"  v-model="datas.about_title">
+                                        <small>请填写关于标题文字2-20字左右。</small>
+                                     </div>
+                                </div>
+                                 <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">关于内容<span class="tpl-form-line-small-title">about_content</span></label>
+                                    <div class="am-u-sm-9">
+                           				<textarea id="textarea1"    style="height: 300px" validator="validator"  required regexp="/^.{20,2000}$/" ></textarea> 
+										<small>请填写关于内容文字2-2000字左右。</small>
+                                    </div>
+                                </div>
+                                 
+                                
+                                 <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">文化标题 <span class="tpl-form-line-small-title">culture_title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,20}$/"  id="user-name" placeholder="请输入标题文字"  v-model="datas.culture_title">
+                                        <small>请填写文化标题文字2-20字左右。</small>
+                                     </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">文化内容<span class="tpl-form-line-small-title">culture_content</span></label>
+                                    <div class="am-u-sm-9">
+                           				<textarea id="textarea2"    style="height: 300px" validator="validator"  required regexp="/^.{20,5000}$/" ></textarea> 
+										<small>请填写文化内容文字2-5000字左右。</small>
+                                    </div>
+                                </div>
+                                
+                                 <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">产品标题 <span class="tpl-form-line-small-title">product_title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input"  validator="validator"  required regexp="/^.{2,20}$/"  id="user-name" placeholder="请输入标题文字"  v-model="datas.product_title">
+                                        <small>请填写产品标题文字2-20字左右。</small>
+                                     </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">产品内容<span class="tpl-form-line-small-title">product_content</span></label>
+                                    <div class="am-u-sm-9">
+                           				<textarea id="textarea3"    style="height: 300px" validator="validator"  required regexp="/^.{20,2000}$/" ></textarea> 
+										<small>请填写产品内容文字2-2000字左右。</small>
+                                    </div>
+                                </div>
+                               <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button"  v-on:click="saveAbout($event)"  class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+		</div>
+	</div>
+  
+<!-- vue -->
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#pageVue',
+		data:{
+			datas:{},
+			editorContent:'',
+			editorContent2:'',
+			editorContent3:''
+		},
+		mounted:function(){
+			this.$nextTick(function () {
+			    // 代码保证 this.$el 在 document 中
+				var self = this;
+			    
+			    // 创建编辑器
+                var editor = new wangEditor('textarea1');
+                editor.onchange = function () {
+                    // onchange 事件中更新数据
+                    self.editorContent = editor.$txt.html();
+                };
+                editor.create();
+                
+                // 创建编辑器
+                var editor2 = new wangEditor('textarea2');
+                editor2.onchange = function () {
+                    // onchange 事件中更新数据
+                    self.editorContent2 = editor2.$txt.html();
+                };
+                editor2.create();
+                
+                // 创建编辑器
+                var editor3 = new wangEditor('textarea3');
+                editor3.onchange = function () {
+                    // onchange 事件中更新数据
+                    self.editorContent3 = editor3.$txt.html();
+                };
+                editor3.create();
+                
+              //初始化图片组件
+				ydz.plupload({
+					browse_button:'browse',
+					counts:false,
+					succ:function(data){
+						self.datas.site_weimg=data;
+    				}
+				});
+                
+                //初始化数据
+                ydz.post({
+    				url:"/about/getAbout",
+    				succ:function(data){
+    					self.datas=data.data;
+    					self.editorContent=data.data.about_content;
+    					self.editorContent2=data.data.culture_content;
+    					self.editorContent3=data.data.product_content;
+    					editor.$txt.html(data.data.about_content);
+    					editor2.$txt.html(data.data.culture_content);
+    					editor3.$txt.html(data.data.product_content);
+    				}
+    			})
+             })
+		},
+		created: function(){},
+		methods:{
+			
+			//保存
+			saveAbout:function(ev){  
+				var that=this;
+				var yes = ydz.validate();
+				
+				//$("#content").prop('scrollTop','100px')
+				//$("div").scrollTop(100);
+				 //$("#content").animate({scrollTop:100}, 'slow');
+				if(yes){
+					var that=this;
+				 	ydz.post({
+						url:"/about/insertAbout",
+						data:{
+							copyrightTitle:that.datas.copyright_title,
+					    	aboutTitle:that.datas.about_title,
+							aboutContent:that.editorContent,
+							cultureTitle:that.datas.culture_title,
+							cultureContent:that.editorContent2,
+							productTitle:that.datas.product_title,
+							productContent:that.editorContent3,
+							siteTitle:that.datas.site_title,
+							slogan:that.datas.slogan,
+							siteTel:that.datas.site_tel,
+							siteEmail:that.datas.site_email,
+							siteWeimg:that.datas.site_weimg,
+							serviceCode:that.datas.service_code
+					    },
+						succ:function(data){
+							if(data.code==200){
+								ydz.modalMsg("success",null,{
+									load:function(){
+										ydz.loadDom('/template/home-page',false);
+									}
+								});
+							}else{
+								ydz.modalMsg("error");
+							}
+						}
+					})
+				} 
+			}
+		}
+	}) 
+</script>
+
+
+
+<!-- 初始化 -->
+<script type="text/javascript">
+//时间
+ $('#my-datepicker').datepicker({format: 'yyyy-mm-dd'}); 
+ //下拉框
+ $('select').selected();
+ 
+</script>
+
+
+

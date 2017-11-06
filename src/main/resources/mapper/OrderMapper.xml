@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ydz.fuckings.business.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.ydz.fuckings.business.model.Order">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="prodjct_id" jdbcType="INTEGER" property="productId" />
+    <result column="order_nbr" jdbcType="VARCHAR" property="orderNbr" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="floor_space" jdbcType="VARCHAR" property="floorSpace" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="merger_name" jdbcType="VARCHAR" property="mergerName" />
+  </resultMap>
+  
+  <!-- 删除订单 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yf_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 添加订单 -->
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ydz.fuckings.business.model.Order" useGeneratedKeys="true">
+    insert into yf_order (prodjct_id,order_nbr,city_id, addr, floor_space, remark, name, phone, create_date)
+    values (#{productId,jdbcType=INTEGER},#{orderNbr,jdbcType=VARCHAR},#{cityId,jdbcType=INTEGER}, #{addr,jdbcType=VARCHAR}, 
+    #{floorSpace,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE})
+  </insert>
+  
+  <!-- 修改订单 -->
+  <update id="updateByPrimaryKey" parameterType="com.ydz.fuckings.business.model.Order">
+    update yf_order
+    set city_id = #{cityId,jdbcType=INTEGER},
+      addr = #{addr,jdbcType=VARCHAR},
+      floor_space = #{floorSpace,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 查看订单 -->
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select yo.id, yo.order_nbr,yo.prodjct_id,yo.city_id, yo.addr, yo.floor_space, yo.remark, yo.name, yo.phone, yo.state, yo.create_date,ya.merger_name
+    from yf_order yo left join yf_area ya on yo.city_id=ya.id
+    where yo.id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 分页查询 -->
+  <select id="selectAll"  parameterType="com.ydz.fuckings.business.model.Order" resultMap="BaseResultMap">
+    select yo.id,
+      yo.order_nbr,
+      yo.prodjct_id,
+      yo.city_id, 
+      yo.addr,
+      yo.floor_space, 
+      yo.remark, 
+      yo.name, 
+      yo.phone, 
+      yo.state, 
+      yo.create_date,
+      ya.merger_name
+    from yf_order yo 
+    	left join yf_area ya on yo.city_id=ya.id
+    where yo.state='E'
+    <if test="name!=null and name!=''">
+    	and yo.name=#{name}
+    </if>
+    <if test="phone!=null and phone!=''">
+    	and yo.phone=#{phone}
+    </if>
+    order by yo.create_date desc
+  </select>
+</mapper>

@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>成功案例</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/pagination.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/pagination.js"></script>
+</head>
+<body>
+    <div class="s_container" id="sucessproduct">
+        <div class="c_top">
+            <div class="main p_relative">
+                <div class="nav p_absolute">
+                    <a href="index.html">首页</a>
+                    <a href="about.html">关于易品</a>
+                    <a href="companyinfo.html">企业动态</a>
+                    <a href="joinus.html">招商代理</a>
+                    <a href="online-order.html">在线订单</a>
+                    <a href="sucessproduct.html" class="mr10 hoveractive">成功案例</a>
+                </div>
+                <a href="#">
+                    <img src="images/logotop.png" class="logoyipin"/>
+                </a>
+            </div>
+        </div>
+        <div class="s_content">
+            <div class="main">
+                <div class="s_search p_relative">
+                    <input type="text" v-model="productName"/>
+                    <img class="p_absolute s_searchimg" src="images/search.png" v-on:click="findPage()"/>
+                </div>
+                <div class="s_tab">
+                    <ul class="s_list">
+                        <li v-for="listMap in datasc" v-on:click="s_list($event,listMap.id)">{{listMap.class_name}}</li>
+                       <!--  <li class="active">全屋定制</li>
+                        <li>负墙板</li> -->
+                    </ul>
+                    <div class="tabbox">
+                        <div class="tab_com">
+                            <div class="marginr4 p_relative tab_com_div" v-for="listBean in datas" v-on:click="tab_com($event,listBean.id)">
+                                <img  :src="listBean.img"/>
+                                <div class="textbg_box p_absolute">
+                                    <p class="textinfo">{{listBean.productName}}</p>
+                                    <p class="wordbg"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagebox"> <!--- 传入数据后把这个类删了，同时将上面的模块布局加入到下面的html拼接字符串里面去 -->
+                    <div id="page2">
+                    	 <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                    </div>
+                </div>
+            </div>
+		</div>
+            <div class="alert_container" style="position:relative;z-index:32">
+                <div class="alertbg hide"></div>
+                <div class="alert_content hide">
+                    <div class="small-owl owl-carousel owl-theme  owl-loaded" id="imgList">
+                        <div class="item p_relative" v-if="datack.imgs!=''" v-for="(imgurl,index) in datack.imgs">
+                            <img :src="imgurl" class="imgitem" width="500" height="300">
+                        </div>
+              		</div>
+                    <div class="alert_text">
+                        <p class="alert_h">
+                            <span class="price">{{datack.productPrice}}</span>
+                            <span class="smoon">{{datack.productName}}</span>
+                        </p>
+                        <p class="alert_p" v-html="datack.productDesc" style="overflow: auto;height:120px"></p>
+                        <a href="javascript:void(0);" class="alertbtn" v-on:click="createOrder()">立即预定</a>
+                    </div>
+                    <img src="images/s_close.png" class="s_close p_absolute" v-on:click="s_close()"/>
+                </div>
+            </div>
+            <div class="alert hide"></div>
+
+        <div class="m_footer margin_t150">
+            <div class="main">
+                <p  class="gray_logo"><img src="images/1.png"></p>
+                <div class="m_footer_text">
+                    <div class="mfoot_info text_center">
+                        <a href="index.html">首页</a>
+                        <a href="about.html">关于易品</a>
+                        <a href="companyinfo.html">企业动态</a>
+                        <a href="sucessproduct.html" >公司产品</a>
+                        <a href="online-order.html">在线订单</a>
+                        <a href="joinus.html" class="mr50">招商代理</a>
+                    </div>
+                    <p class="elseinfo text_center">
+                        <strong>TELEPHONE</strong>
+                        <span class="paddingl12r32">联系我们</span>
+                        <strong class="mf_phone">{{datasx.site_tel}}</strong>
+                    </p>
+                </div>
+                <p class="text_center publish">{{datasx.copyright_title}}</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/pagination.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/owl.carousel.js"></script>
+   <!-- <script type="text/javascript" src="js/sauto.js"></script>-->
+ <script type="text/javascript">
+  new Vue({
+			el:'#sucessproduct',
+			data:{
+				cur: 1,
+	            all: 0,
+	            size:5,
+	            classType:'',
+	            productName:'',
+				datas:[],
+				datasc:[],
+				datasx:[],
+				datack:{}
+			},
+			components:{
+				'vue-pagination': Vue.Pagination
+			},
+			mounted:function(){
+				this.$nextTick(function () {
+					var self = this;
+					// 代码保证 this.$el 在 document 中
+					//初始化数据
+	             	self.findPage()
+	    			//初始化数据
+	                ydz.post({
+	    				url:"/about/getAbout",
+	    				data:null,
+	    				succ:function(data){
+	    					self.datasx=data.data;
+	    				}
+	    			})
+	    			ydz.post({
+	    				url:"/classdom/findClassDom",
+	    				data:null,
+	    				succ:function(data){
+	    					self.datasc=data.data;
+	    				}
+	    			})
+				})
+			},
+			beforeUpdate:function(){},
+			beforeMount:function(){},
+			created: function(){},
+			methods:{
+				listen: function (data) {
+					var self = this;
+					self.cur=data;
+					self.findPage();
+				},
+				s_list:function(ev,id){
+					var self = this;
+					$(ev.currentTarget).addClass("active").siblings().removeClass("active");
+	                if($(ev.currentTarget).index()==0){
+	                       $(".tab_com div.mmc").show().siblings().not(".mmc").hide();
+	                }else if($(ev.currentTarget).index()==2){
+	                        $(".tab_com div.qb").show().siblings().not(".qb").hide();
+	                }else if($(ev.currentTarget).index()==1){
+	                        $(".tab_com div").show();
+	                }
+	                self.classType=id
+	                self.findPage();
+				},
+				
+				tab_com:function(ev,idval){
+					var self = this;
+					ydz.post({
+	    				url:"/product/selectByPrimaryKey",
+	    				data:{id:idval},
+	    				succ:function(data){
+	    					self.datack=data.data;
+	    					self.datack.imgs=self.datack.imgs.split(",");
+	    					self.$nextTick(function(){
+	    						$('.small-owl').owlCarousel({
+		    		                animateOut: 'fadeOut',
+		    		                items: 1,
+		    		                loop: true,
+		    		                smartSpeed: 1050,
+		    		                autoplay: true,
+		    		                ownevent:true,
+		    		                autoplayTimeout: 2000
+		    		            });
+	    					})
+	    				
+	    				}
+	    			})
+	    			$(".alert").removeClass("hide");
+	                $(".alert_content").removeClass("hide");
+	                $(".alertbg").removeClass("hide");
+				},
+				s_close:function(){
+					$(".alert").addClass("hide");
+	                $(".alertbg").addClass("hide");
+	                $(".alert_content").addClass("hide");
+				},
+				createOrder:function(){
+					var self = this;
+					window.location.href="online-order.html?id="+self.datack.id;
+				},
+              findPage:function(){
+              	var self = this;
+					 ydz.post({
+		    				url:"/product/selectProductAll",
+		    				data:{
+		    						pageNum:this.cur,
+		    						pageSize:this.size,
+		    						productClassId:this.classType,
+		    						productName:this.productName
+		    						},
+		    				succ:function(data){
+		    					self.datas=data.data.list;
+		    					self.all=data.data.pages;
+		    				}
+		    			})
+              }
+			}
+		}) 
+
+   // 时间过滤器
+		Vue.filter('formatDates', function (value) {
+			//return ydz.formDate(value);
+		})
+</script>
+</body>
+</html>

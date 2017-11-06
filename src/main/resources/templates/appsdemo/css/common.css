@@ -1,0 +1,96 @@
+*{margin:0;padding:0;outline:none}
+html{height:100%;}
+body{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:none;color:#000;font-size:14px;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,SimSun,SimHei;word-break:break-all}
+h1,h2,h3,h4,h5,h6{font-weight:normal}
+ul,ol{list-style:none}
+img{vertical-align:middle;border:0}
+.input{border:none;vertical-align: top;}
+input[type='text'],input[type='password']{font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,SimSun,SimHei;color:#e0e0e0;background:#fff}
+select,textarea{font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,SimSun,SimHei;color:#e0e0e0;resize:none;background:#fff}
+a{color:#000;text-decoration:none;}
+/*a.active,a:hover{color:#f00;outline:0;text-decoration:none}*/
+/**相对定位 **/
+.p_relative{position:relative}
+.p_absolute{position:absolute}
+.p_fixed{position:fixed;}
+/** 浮动 **/
+.l{float:left}
+.r{float:right}
+.hidden{display:none}
+/*  清浮动 */
+.clearfix{overflow:hidden;zoom:1}
+/* 最好的一个清浮动效果  */
+.cc::after{content: "";clear:both;visibility:hidden;height:0;}
+
+.border_nonet{border-top:none !important}
+/* 文字溢出  */
+.word{white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden}
+.marginTop{margin-top:34px}
+/*.header,.navbai,.contaner,.search,.content,.bottom{width:1000px;margin:0 auto}*/
+/* inline-block */
+.inblock{display:inline-block;*display:inline;*zoom:1;}
+/* 解决缝隙问题 */
+.inparent{font-size:0;}
+.inchild{font-size:12px;}
+/**文本对齐方式**/
+.text_left{ text-align:left;}
+.text_center{ text-align:center;}
+.text_right{ text-align:right;}
+/**文字下滑线**/
+.text_through{ text-decoration:line-through;}
+.text_underline{ text-decoration:underline;}
+/**字体加粗**/
+.font_b{ font-weight:bold;}
+/**padding**/
+.padding_5{padding:5px;}
+.padding_10{padding:10px;}
+.padding_20{padding:20px;}
+.paddingrl_10{padding:0 10px;}
+.paddingrl_5{padding:0 5px;}
+.paddingtb_5{padding:5px 0;}
+.paddingt_10{padding-top:10px;}
+.paddingtb_5{padding:10px 0;}
+/**字体加粗**/
+.font_bolder{ font-weight:bolder;}
+/**margin**/
+.margin_5{margin:5px;}
+.margin_10{margin:10px;}
+.margin_10{margin:20px;}
+.marginrl_10{margin:0 10px;}
+.marginrl_5{margin:0 5px;}
+.margintb_5{margin:5px 0;}
+.margintb_5{margin:10px 0;}
+.margin_top10{margin-top:10px;}
+.margin_top20{margin-top:20px;}
+.margin_t60{margin-top:60px;}
+/**表格**/
+.comm_tab{ width:100%; border:0; border-collapse:collapse; border-spacing:0;}
+/**改变input 或者textarea都一样  里面placeholder的字体颜色**/
+input{color:#fff;}
+　
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    color: #999999;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #999999;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #999999;
+}
+
+
+/**文字大小**/
+.font_s12{font-size:12px;}
+.font_s14{font-size:14px;}
+.font_s16{font-size:16px;}
+.font_s18{font-size:18px;}
+.font_s20{font-size:20px;}
+.font_s22{font-size:22px;}
+.font_s24{font-size:24px;}
+.font_s26{font-size:26px;}

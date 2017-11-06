@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>企业动态</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/pagination.css">
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+     <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+      <script type="text/javascript" src="js/pagination.js"></script>
+
+</head>
+<body>
+  <div class="c_container" id="companyinfo">
+      <div class="c_top">
+          <div class="main p_relative">
+              <div class="nav p_absolute">
+                  <a href="index.html">首页</a>
+                  <a href="about.html">关于易品</a>
+                  <a href="companyinfo.html"  class="hoveractive">企业动态</a>
+                  <a href="joinus.html">招商代理</a>
+                  <a href="online-order.html">在线订单</a>
+                  <a href="sucessproduct.html" class="mr10">成功案例</a>
+              </div>
+              <a href="#">
+                  <img src="images/logotop.png" class="logoyipin"/>
+              </a>
+          </div>
+      </div>
+      <div class="main">
+          <div class="c_context">
+                  <div class="mabout_cont p_relative">
+                      <h4><span class="title_borderl"></span>COMPANY NEWS<span class="titleinfo">宜品.动态</span></h4>
+                          <ul class="new_info_text margin-b20t40">
+                              <li v-for="listMap in datas"  class="c_pinfol p_relative c_pinfo" v-on:click="c_pinfo($event)" >
+                                  <span class="c_pin_title">{{listMap.news_title}}</span>
+                                  <span class="p_absolute time">{{listMap.create_date}}</span>
+                                  <div class="new_detail_box hide">
+                                      <div class="new_detail" v-html="listMap.news_content">
+                                      </div>
+                                      <a href="javascript:void(0);" class="close hide" v-on:click="c_close($event)" ><img src="images/close.png"></a>
+                                  </div>
+                              </li>
+                            
+                          </ul>
+                      <div class="pagebox"> <!--- 传入数据后把这个类删了，同时将上面的模块布局加入到下面的html拼接字符串里面去 -->
+                        <div id="page">
+                        	  <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                        </div>
+                      </div>
+                  </div>
+          </div>
+      </div>
+      <div class="m_footer margin_t150">
+          <div class="main">
+              <p  class="gray_logo"><img src="images/1.png"></p>
+              <div class="m_footer_text">
+                  <div class="mfoot_info text_center">
+                      <a href="index.html">首页</a>
+                      <a href="about.html">关于易品</a>
+                      <a href="companyinfo.html">企业动态</a>
+                      <a href="sucessproduct.html" >公司产品</a>
+                      <a href="online-order.html">在线订单</a>
+                      <a href="joinus.html" class="mr50">招商代理</a>
+                  </div>
+                  <p class="elseinfo text_center">
+                      <strong>TELEPHONE</strong>
+                      <span class="paddingl12r32">联系我们</span>
+                      <strong class="mf_phone">{{datasx.site_tel}}</strong>
+                  </p>
+              </div>
+              <p class="text_center publish">{{datasx.copyright_title}}</p>
+          </div>
+      </div>
+  </div>
+<script type="text/javascript">
+  
+      var app = new Vue({
+			el:'#companyinfo',
+			data:{
+				cur: 1,
+	            all: 0,
+	            size:5,
+				datas:[],
+				datasx:[]
+			},
+			components:{
+				'vue-pagination': Vue.Pagination
+			},
+			mounted:function(){
+				this.$nextTick(function () {
+					
+					var self = this;
+					// 代码保证 this.$el 在 document 中
+					//初始化数据
+	                ydz.post({
+	    				url:"/news/findNews",
+	    				data:{
+  						pageNum:this.cur,
+  						pageSize:this.size
+  						},
+	    				succ:function(data){
+	    					self.datas=data.data.list;
+	    					self.all=data.data.pages;
+	    					 
+	    				}
+	    			})
+	    			
+	    			//初始化数据
+                ydz.post({
+    				url:"/about/getAbout",
+    				data:null,
+    				succ:function(data){
+    					self.datasx=data.data;
+    				}
+    			})
+				})
+			},
+			beforeUpdate:function(){},
+			created: function(){},
+			methods:{
+				listen: function (data) {
+					var self = this;
+					self.cur=data;
+					self.findPage();
+				},
+				c_pinfo:function(ev){
+					 $(ev.currentTarget).find(".new_detail_box").removeClass("hide").parent().siblings().hide();
+			            $(ev.currentTarget).find(".c_pin_title").addClass("c_strong");
+			            $("#page").hide();
+			            return false;
+				},
+				c_close:function(ev){
+					  ev.stopPropagation();
+			          $(ev.currentTarget).parent().addClass("hide").parent().siblings(".c_pinfo").show();
+			          $(ev.currentTarget).parents(".c_pinfo").find(".c_pin_title").removeClass("c_strong");
+			          $("#page").show();
+				},
+              findPage:function(){
+              	var self = this;
+					 ydz.post({
+		    				url:"/news/findNews",
+		    				data:{
+		    						pageNum:this.cur,
+		    						pageSize:this.size
+		    						},
+		    				succ:function(data){
+		    					self.datas=data.data.list;
+		    					self.all=data.data.pages;
+		    				}
+		    			})
+              }
+			}
+		}) 
+      
+   // 时间过滤器
+		Vue.filter('formatDates', function (value) {
+			//return ydz.formDate(value);
+		})
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<div class="tpl-content-wrapper">
+      <div class="tpl-portlet-components">
+           <div class="portlet-title">
+               <div class="caption font-green bold">
+                   产品列表
+               </div>
+           </div>
+           <div class="tpl-block">
+               <div class="am-g">
+                   <div class="am-u-sm-12 am-u-md-6">
+                       <div class="am-btn-toolbar">
+                           <div class="am-btn-group am-btn-group-xs">
+                               <button type="button" onclick="ydz.product.createProduct()" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="am-u-sm-12 am-u-md-3">
+                       <div class="am-form-group">
+                           <select data-am-selected="{btnSize: 'sm'}" id="class-selected">
+			         			<option v-for="(option,index)  in options"  v-bind:value="option.id">
+									{{ option.class_name }}
+								</option>
+					       </select>
+                       </div>
+                   </div>
+                   <div class="am-u-sm-12 am-u-md-3">
+                       <div class="am-input-group am-input-group-sm">
+                           <input type="text" class="am-form-field">
+                           <span class="am-input-group-btn">
+						       <button class="am-btn  am-btn-default am-btn-success tpl-am-btn-success am-icon-search" type="button" v-on:click="findPage()" ></button>
+						     </span>
+                       </div>
+                   </div>
+               </div>
+               <div class="am-g">
+                   <div class="tpl-table-images">
+                   
+                       <div class="am-u-sm-12 am-u-md-6 am-u-lg-4" v-for="listBean in datas">
+                           <div class="tpl-table-images-content">
+                               <div class="tpl-table-images-content-i-time">发布时间：{{listBean.createDate | formatDates}}</div>
+                               <div class="tpl-i-title">
+                                   类型：{{listBean.className}}
+                               </div>
+                               <a href="javascript:;" class="tpl-table-images-content-i">
+                                   <div class="tpl-table-images-content-i-info">
+                                       <span class="ico">￥：{{listBean.productPrice}}</span>
+									</div>
+                                   <span class="tpl-table-images-content-i-shadow"></span>
+                                   <img :src="listBean.img" alt="">
+                               </a>
+                               <div class="tpl-table-images-content-block">
+                                   <div class="tpl-i-font">
+ 											{{listBean.productName}}
+                                   </div>
+                                  <hr>
+                                   <div class="am-btn-toolbar">
+                                       <div class="am-btn-group am-btn-group-xs tpl-edit-content-btn">
+                                           <button type="button" class="am-btn am-btn-default am-btn-secondary" v-on:click="ydz.product.createProduct(listBean.id)"><span class="am-icon-edit"></span> 编辑</button>
+                                           <button type="button" class="am-btn am-btn-default am-btn-danger" v-on:click="deleteProduct(listBean.id)"><span class="am-icon-trash-o"></span> 删除</button>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="am-u-lg-12">
+                           <div class="am-cf">
+								<div class="am-fr">
+                                  <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                               </div>
+                           </div>
+                           <hr>
+                       </div>
+
+                   </div>
+
+               </div>
+           </div>
+       </div>
+</div>

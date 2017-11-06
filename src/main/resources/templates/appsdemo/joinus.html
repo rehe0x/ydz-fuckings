@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>招商代理</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+</head>
+<body>
+<div class="j_container" id="indexhtml">
+    <div class="c_top">
+        <div class="main p_relative">
+            <div class="nav p_absolute">
+                <a href="index.html">首页</a>
+                <a href="about.html">关于易品</a>
+                <a href="companyinfo.html">企业动态</a>
+                <a href="joinus.html"  class="hoveractive">招商代理</a>
+                <a href="online-order.html">在线订单</a>
+                <a href="sucessproduct.html" class="mr10">成功案例</a>
+            </div>
+            <a href="#">
+                <img src="images/logotop.png" class="logoyipin"/>
+            </a>
+        </div>
+    </div>
+    <div class="o_content p_relative">
+        <img src="images/join_bg.jpg" class="join_bg" />
+            <div class="main">
+                <div class="jcom clearfloat">
+                    <div class="mabout_cont l">
+                        <h4><span class="title_borderl"></span>TELEPHONE</h4>
+                        <h5>联系我们</h5>
+                        <p><img src="images/phone.png"/></p>
+                        <p class="margin_top20 phonenum">{{datas.site_tel}}</p>
+                    </div>
+                    <div class="mabout_imgr r">
+                            <div class="message message_bg">
+                                <p class="message_img">Message</p>
+                                <p class="tip">留言</p>
+                                <div  class="formcontent p_relative">
+                                    <p><label>姓名</label><input type="text" id="userName"></p>
+		                            <p><label>邮箱</label><input type="text" id="email"></p>
+		                            <p><label>电话</label><input type="text" id="phone"></p>
+		                            <p><label>留言</label><textarea  id="message" ></textarea></p>
+                                </div>
+                                <a href="javascript:void(0);" onclick="saveMessage()"  class="formbutton">提交留言</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    <div class="m_footer margin_t150">
+        <div class="main">
+            <p  class="gray_logo"><img src="images/1.png"></p>
+            <div class="m_footer_text">
+                <div class="mfoot_info text_center">
+                    <a href="index.html">首页</a>
+                    <a href="about.html">关于易品</a>
+                    <a href="companyinfo.html">企业动态</a>
+                    <a href="sucessproduct.html" >公司产品</a>
+                    <a href="online-order.html">在线订单</a>
+                    <a href="joinus.html" class="mr50">招商代理</a>
+                </div>
+                <p class="elseinfo text_center">
+                    <strong>TELEPHONE</strong>
+                    <span class="paddingl12r32">联系我们</span>
+                    <strong class="mf_phone">{{datas.site_tel}}</strong>
+                </p>
+            </div>
+            <p class="text_center publish">{{datas.copyright_title}}</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/autofooter.js"></script>
+</body>
+</html>
+
+
+<script type="text/javascript">
+ var app = new Vue({
+		el:'#indexhtml',
+		data:{
+			datas:{},
+		},
+		mounted:function(){
+			this.$nextTick(function () {
+				// 代码保证 this.$el 在 document 中
+				var self = this;
+			 	//初始化数据
+                ydz.post({
+    				url:"/about/getAbout",
+    				data:null,
+    				succ:function(data){
+    					self.datas=data.data;
+    					
+    				}
+    			})
+             })
+		},
+		created: function(){
+			
+		},
+	})  
+ 
+
+ function saveMessage(){
+ 	var userName=$("#userName").val();
+ 	var email=$("#email").val();
+ 	var phone =$("#phone").val();
+ 	var message =$("#message").val();
+ 	if(!ydz.isNull(userName)){
+ 		alert("姓名不能为空！");
+ 		return;
+ 	}
+ 	if(!ydz.isNull(email)){
+ 		alert("邮箱不能为空！");
+ 		return;
+ 	}
+ 	if(!ydz.isNull(phone)){
+ 		alert("电话不能为空！");
+ 		return;
+ 	}
+ 	if(!ydz.isNull(message)){
+ 		alert("留言不能为空！");
+ 		return;
+ 	}
+ 	
+ 	ydz.post({
+ 		url:"/join/insertJoin",
+ 		data:{
+ 			name:userName,
+ 			email:email,
+ 			phone:phone,
+ 			message:message
+ 		},
+ 		succ:function(data){
+ 			if(data.code==200){
+ 				alert("提交成功！");
+ 			}else{
+ 				alert(data.message);
+ 			}
+ 		}
+ 	})
+ }     
+</script>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <!-- zui --> 
+    <link href="/ui/sys/css/zui.css" rel="stylesheet">
+    <link href="/ui/sys/css/zui.datatable.css" rel="stylesheet">
+    <link href="/ui/sys/css/kkpager.css" rel="stylesheet">
+    <link href="/ui/sys/css/style.css" rel="stylesheet">
+    <link href="/ui/sys/css/loading.css" rel="stylesheet">
+    <!-- <link href="/ui/sys/css/zui-theme.css" rel="stylesheet"> -->
+  </head>
+  <body>
+    <!-- 导航头部 -->
+  	<div class="head" >
+	  	 <nav class="navbar navbar-default" role="navigation">
+	      	<div class="navbar-header">
+	          <!-- 移动设备上的导航切换按钮 -->
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-example">
+	            <span class="sr-only">切换导航</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <!-- 品牌名称或logo -->
+	          <a class="navbar-brand" href="#">YI PIN</a>
+	        </div>
+	
+	        <!-- 导航项目 -->
+	        <div class="collapse navbar-collapse navbar-collapse-example">
+	          <!-- 一般导航项目 -->
+	        <!--  <ul class="nav navbar-nav">
+	           <li class=""><a href="#">项目</a></li> 
+	            <li><a  href="#">需求</a></li>
+	             导航中的下拉菜单
+	            <li class="dropdown">
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">管理 <b class="caret"></b></a>
+	              <ul class="dropdown-menu" role="menu">
+	                <li><a  href="#">任务</a></li>
+	                <li><a  href="#">待办</a></li>
+	                <li><a  href="#">Bug</a></li>
+	                <li class="divider"></li>
+	                <li><a  href="#">测试</a></li>
+	                <li><a  href="#">用例</a></li>
+	              </ul>
+	            </li>
+	          </ul> -->
+	          <!-- 右侧的导航项目 -->
+	          <ul class="nav navbar-nav navbar-right">
+	            <li class="dropdown">
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心 <b class="caret"></b></a>
+	              <ul class="dropdown-menu" role="menu">
+	                <li><a  href="#">编辑资料</a></li>
+	                <li><a  href="#">签到</a></li>
+	                <li class="divider"></li>
+	                <li><a  href="#">退出</a></li>
+	              </ul>
+	            </li>
+	            <li><a  href="#">帮助</a></li>
+	          </ul>
+	        </div><!-- END .navbar-collapse -->
+      	</nav>
+       </div>
+     	<div style="height: 62px"></div>
+      	 <!-- 左侧menu -->
+      	<div class="lefthand" >
+	  		<nav class="menu" data-toggle="menu" style="width: 170px;float:left">
+			 <ul class="nav nav-primary">
+			 	<li><a href="javascript:void(0)" onclick="ydz.loadDom('home')"><i class="icon-circle-blank"></i> 首页</a></li> 
+			 	<li>
+			 	 	<a href="javascript:void(0)" onclick="ydz.loadDom('/template/updateEnterpriseInfo')"><i class="icon-th"></i> 企业信息</a>
+			    	<!-- <ul class="nav">
+			    	<li><a href="javascript:void(0)" onclick="ydz.loadDom('/template/updateBasicInfo')">基础信息</a></li>
+			        <li><a href="javascript:void(0)" onclick="ydz.loadDom('/template/updateEnterpriseInfo')">企业信息</a></li>
+			    	<li><a href="javascript:void(0)" onclick="ydz.loadDom('/demo/demoTable')">菜单管理</a></li>
+			        <li><a href="javascript:void(0)" onclick="ydz.loadDom('/demo/test1')">角色管理</a></li>
+			     
+			       </ul> -->
+			    </li>
+			    <li><a href="#"><i class="icon-user"></i> 调度任务</a></li>
+			    <li>
+			      <a href="#"><i class="icon-time"></i> 爬虫采集</a>
+			      <ul class="nav">
+			        <li><a href="#">添加爬虫</a></li>
+			        <li><a href="#">添加采集</a></li>
+			       </ul>
+			    </li>
+			    <li><a href="#"><i class="icon-list-ul"></i> 商品管理</a></li>
+	<!-- 		    <li><a href="#"><i class="icon-circle-blank"></i> Ready</a></li> -->	
+			 		<li class="active"><a href="#"><i class="icon-play-sign"></i> 有点炸</a></li>
+	  			</ul>
+			</nav>
+		</div>
+		<!-- 右侧内容 -->
+		<div class="content" id="content">
+		</div>
+		
+		<div class="footer_hide"  style="height: 20px"></div>
+		<div class="footer" >
+			<nav class="navbar-inverse navbar-fixed-bottom center" role="navigation"  style="height: 20px;z-index: 99999">
+		 		<p class="navbar-text navbar-right">2016 <a href="#" class="navbar-link">制作 @ydz</a></p>
+			</nav>
+		</div>
+		
+		<div id="loading">
+			<div class='spinner'>
+				<div class='rect1'></div>
+				<div class='rect2'></div>
+				<div class='rect3'></div>
+				<div class='rect4'></div>
+				 <div class='rect5'></div>
+			</div>
+		</div>
+		
+	 <!-- 遮罩层 -->	 
+	<div id="bg"></div>
+    <!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
+    <script src="/ui/sys/js/jquery.min.js"></script>
+    <!-- ZUI Javascript组件 -->
+    <script src="/ui/sys/js/zui.js"></script>
+    <script src="/ui/sys/js/zui.datatable.js"></script>
+    <script src="/ui/sys/js/kkpager.js"></script>
+    <!-- 工具JS -->
+    <script src="/ui/sys/js/util.js"></script>
+ </body>
+
+</html>

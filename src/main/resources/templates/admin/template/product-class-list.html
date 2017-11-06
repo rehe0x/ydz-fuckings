@@ -1,0 +1,28 @@
+<div class="tpl-content-wrapper"  id="demo">
+ 			<div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                       分类
+                    </div>
+                </div>
+                <div id="">
+				    <vue-tree :option="option" @btn-click="listen"></vue-tree>
+				</div>
+             </div>
+             <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+			  <div class="am-modal-dialog">
+			    <div class="am-modal-hd">输入名称</div>
+			    <div class="am-modal-bd">
+			        上级：XXX
+			      <input type="text" class="am-modal-prompt-input"  v-model="classText" >
+			    </div>
+			    <div class="am-modal-footer">
+			      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+			      <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+			    </div>
+			  </div>
+			</div>
+	</div>
+	
+
+

@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=7;IE=edge,chrome=1">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <link rel="stylesheet" href="css/lanren.css">
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <!-- 是ie低版本支持min-width -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.js"></script>
+    <script src="js/html5shive.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="m_container" id="indexhtml">
+    <div class="m_top">
+        <div class="main height26 p_relative">
+            <div class="nav">
+                <a href="index.html" class="hoveractive">首页</a>
+                <a href="about.html">关于易品</a>
+                <a href="companyinfo.html">企业动态</a>
+                <a href="joinus.html">招商代理</a>
+                <a href="online-order.html">在线订单</a>
+                <a href="sucessproduct.html" class="mr10">成功案例</a>
+            </div>
+          <!--  logo-->
+          <a href="#">
+                 <img src="images/logotop.png" class="logoyipin"/>
+            </a>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="fadeOut owl-carousel owl-theme  owl-loaded" id="bannerId">
+        </div>
+    </div>
+        <div class="m_aboutus p_relative zindex1" id="">
+            <div class="main">
+                <div class="mabout_cont l">
+                    <div class="hbox p_relative">
+                        <h4><span class="title_borderl"></span>ABOUT  US</h4>
+                        <h5 id="">{{datas.about_title}}</h5>
+                         <img src="images/box1.png"  class="p_absolute imgbox">
+                    </div>
+                    <div v-html="datas.about_content" style="text-overflow: inherit;height: 220px;overflow: hidden;"></div>
+                    <a href="about.html" class="m_about_more1">更多</a>
+                </div>
+                <div class="mabout_imgr r  p_relative">
+                    <img src="images/sofa.jpg">
+                    <img src="images/yptext.png" class="yptext p_absolute">
+                </div>
+
+            </div>
+            <img src="images/abouttext.png" class="textpng p_absolute">
+        </div>
+        <div class="m_culture p_relative">
+            <div class="main">
+                <div class="mabout_cont l">
+                    <div class="hbox p_relative">
+                        <h4><span class="title_borderl"></span>CULTURE</h4>
+                        <h5>{{datas.culture_title}}</h5>
+                        <img src="images/box2.png"  class="p_absolute imgbox">
+                    </div>
+                  	<div v-html="datas.culture_content"  style="text-overflow: inherit;height: 220px;overflow: hidden;"></div>
+                    <a href="about.html" class="m_about_more2">更多</a>
+                </div>
+                <div class="mabout_imgr r">
+                    <div class="mc_box clearfix">
+                        <div class="mc_boxl l">
+                            <div class="mc_box_com">
+                                <p><img src="images/zhuan.png"></p>
+                                <p class="marginl_6 sw">专业</p>
+                                <p class="textp marginl_6">我们拥有最专业的团队为您的家定制精品</p>
+                            </div>
+                            <div class="mc_box_com margint_110">
+                                <p><img src="images/protect.png"  class="marginl_6"></p>
+                                <p class="marginl_6 sw">品质</p>
+                                <p class="textp marginl_6">我们只为您的生活品质而奋斗</p>
+                            </div>
+                        </div>
+                        <div class="mc_boxr r">
+                            <div class="mc_box_com">
+                                <p><img src="images/heart.png"></p>
+                                <p class="marginl_4 sw">责任</p>
+                                <p class="textp marginl_6">我们的服务让您更用心</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="images/culturetext.png" class="culturetext p_absolute">
+        </div>
+        <div class="m_product p_relative">
+            <div class="main">
+                <div class="mabout_cont l">
+                    <div class="hbox p_relative">
+                        <h4><span class="title_borderl"></span>PRODUCT</h4>
+                        <h5>{{datas.product_title}}</h5>
+                        <img src="images/box1.png"  class="p_absolute imgbox">
+                    </div>
+                  	<div v-html="datas.product_content" style="text-overflow: inherit;height: 220px;overflow: hidden;"></div>
+                    <a href="sucessproduct.html" class="m_about_more2">更多</a>
+                </div>
+                <div class="mabout_imgr r">
+                    <div class="margin_r6 a_hovercom margin_b6">
+                        <img src="images/pro_icon_03.jpg" class="pro_icon3"/>
+                        <a href="sucessproduct.html">
+                            <div class="hide hoverdiv">
+                                <img src="images/search.png"/>
+                                <p class="m_pro">木门定制</p>
+                                <p>woden door</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div  class="a_hovercom margin_b6">
+                        <img src="images/pro_icon_06.jpg" class="pro_icon3"/>
+                        <a href="sucessproduct.html">
+                            <div class="hide hoverdiv">
+                                <img src="images/search.png"/>
+                                <p class="m_pro">家具定制</p>
+                                <p>furniture</p>
+                            </div>
+                         </a>
+                    </div>
+                    <div  class="margin_r6 a_hovercom">
+                        <img src="images/pro_icon_11.jpg" class="pro_icon3"/>
+                        <a href="sucessproduct.html">
+                            <div class="hide hoverdiv">
+                                <img src="images/search.png"/>
+                                <p class="m_pro">负墙板定制</p>
+                                <p>negative wallboard</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div  class="a_hovercom">
+                        <img src="images/pro_icon_14.jpg" class="pro_icon3"/>
+                        <a href="sucessproduct.html">
+                            <div class="hide hoverdiv">
+                                <img src="images/search.png"/>
+                                <p class="m_pro">全屋定制</p>
+                                <p>full room</p>
+                            </div>
+                         </a>
+                    </div>
+                </div>
+                <div class="mp_content">
+                    <a href="sucessproduct.html">木门</a>
+                    <a href="sucessproduct.html">家具</a>
+                    <a href="sucessproduct.html">负墙板</a>
+                    <a href="sucessproduct.html">全屋</a>
+                </div>
+            </div>
+            <img src="images/product.png" class="textpng p_absolute">
+        </div>
+        <div class="m-contact p_relative">
+            <div class="main">
+                <div class="mabout_cont l">
+                    <div class="hbox p_relative">
+                        <h4><span class="title_borderl"></span>TELEPHONE</h4>
+                        <h5 class="p_relative">联系我们</h5>
+                        <img src="images/box3.png"  class="p_absolute imgbox">
+                    </div>
+                    <p class="margin_t200"><img src="images/phone.png"></p>
+                    <p class="margint30 phonenum">{{datas.site_tel}}</p>
+                </div>
+                <div class="mabout_imgr r">
+                    <div class="message">
+                        <p class="message_img">Message</p>
+                        <p class="tip">留言</p>
+                        <form action="" class="formcontent p_relative">
+                            <p><label>姓名</label><input type="text" id="userName"></p>
+                            <p><label>邮箱</label><input type="text" id="email"></p>
+                            <p><label>电话</label><input type="text" id="phone"></p>
+                            <p><label>留言</label><textarea  style="width:380px;height:160px;" id="message" ></textarea></p>
+                            <a href="javascript:void(0);" onclick="saveMessage()"  class="formbutton"></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <img src="images/phone2.png" class="textpng p_absolute">
+        </div>
+    <div class="m_footer">
+        <div class="main">
+            <p  class="gray_logo"><img src="images/1.png"></p>
+            <div class="m_footer_text">
+                <div class="mfoot_info text_center">
+                    <a href="index.html">首页</a>
+                    <a href="about.html">关于易品</a>
+                    <a href="companyinfo.html">企业动态</a>
+                    <a href="sucessproduct.html" >公司产品</a>
+                    <a href="online-order.html">在线订单</a>
+                    <a href="joinus.html" class="mr50">招商代理</a>
+                </div>
+                <p class="elseinfo text_center">
+                    <strong class="mfenge">TELEPHONE</strong>
+                    <span class="paddingl12r32">联系我们</span>
+                    <strong class="mf_phone">{{datas.site_tel}}</strong>
+                </p>
+            </div>
+            <p class="text_center publish">{{datas.copyright_title}}</p>
+        </div>
+    </div>
+    <!-- 代码部分begin -->
+<div id="rightArrow"><a href="javascript:;" title="在线客户"></a></div>
+<div id="floatDivBoxs">
+  <div class="floatDtt">在线客服</div>
+  <div class="floatShadow">
+    <ul class="floatDqq" v-html="datas.service_code">
+     <!--  <li><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="images/qq.png" align="absmiddle">在线客服1号</a></li>
+      <li><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="images/qq.png" align="absmiddle">在线客服2号</a></li>
+      <li><a target="_blank" href="tencent://message/?uin=745510062&Site=sc.chinaz.com&Menu=yes"><img src="images/qq.png" align="absmiddle">在线客服3号</a></li>
+      <li> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=745510062&site=qq&menu=yes"><img border="0" src="images/qq.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>在线客服3号</a></li> -->
+    </ul>
+    
+    <div class="floatDtxt">热线电话</div>
+    <div class="floatDtel">
+    	<p style="color: #f08326;font-size:20px">{{datas.site_tel}}</p>
+    </div>
+    <div class="floatImg">
+    	<img :src="datas.site_weimg" width="100%">微信扫一扫
+    </div> 
+ 	</div>
+  <!-- <div class="floatDbg"></div> -->
+</div>
+</div>
+
+
+<!-- 轮播js-->
+<script src="js/owl.carousel.js" type="text/javascript"></script>
+<script>
+$(function(){
+	var flag=0;
+	$('#rightArrow').on("click",function(){
+		if(flag==1){
+			$("#floatDivBoxs").animate({right: '-175px'},300);
+			$(this).animate({right: '-5px'},300);
+			$(this).css('background-position','-50px 0');
+			flag=0;
+		}else{
+			$("#floatDivBoxs").animate({right: '0'},300);
+			$(this).animate({right: '170px'},300);
+			$(this).css('background-position','0px 0');
+			flag=1;
+		}
+	});
+});
+</script>
+<script type="text/javascript">
+ var app = new Vue({
+		el:'#indexhtml',
+		data:{
+			datas:{},
+		},
+		mounted:function(){
+			this.$nextTick(function () {
+				// 代码保证 this.$el 在 document 中
+				var self = this;
+			 	//初始化数据
+                ydz.post({
+    				url:"/about/getAbout",
+    				data:null,
+    				succ:function(data){
+    					self.datas=data.data;
+    					
+    				}
+    			})
+             })
+		},
+		created: function(){
+			
+		},
+	})  
+</script>
+
+
+<script type="text/javascript">
+$(function(){
+    $(".a_hovercom").bind("mouseover",function(){
+        var index = $(this).index()
+        $(".hoverdiv").eq(index).removeClass("hide").parent().siblings().find(".hoverdiv").addClass("hide");
+        $(".mp_content a").eq(index).css("color","#f6b821").siblings().css("color","#000");
+    })
+    $(".a_hovercom").bind("mouseout",function(){
+        $(".hoverdiv").addClass("hide");
+        $(".mp_content").css("color","#000");
+    })
+})
+
+ $(function(){
+	ydz.post({
+			url:"/banner/findBanner",
+			data:{
+				pageNum:1,
+				pageSize:10,
+				place:1
+			},
+			succ:function(data){
+				var  strhtml="";
+				for(var i=0;i<data.data.list.length;i++){
+					  $("#bannerId").empty();
+					    strhtml+='<div class="item p_relative">';
+					    strhtml+='<img src="'+data.data.list[i].img+'" class="imgitem">';
+					    strhtml+='</div>';
+		              $("#bannerId").append(strhtml);
+				}
+				 $('.fadeOut').owlCarousel({
+				        animateOut: 'fadeOut',
+				        items: 1,
+				        loop: true,
+				        smartSpeed: 1050,
+				        autoplay: true,
+				        ownevent:false,
+				        autoplayTimeout: 2000
+				    });
+			}
+		})
+})
+
+function saveMessage(){
+	var userName=$("#userName").val();
+	var email=$("#email").val();
+	var phone =$("#phone").val();
+	var message =$("#message").val();
+	if(!ydz.isNull(userName)){
+		alert("姓名不能为空！");
+		return;
+	}
+	if(!ydz.isNull(email)){
+		alert("邮箱不能为空！");
+		return;
+	}
+	if(!ydz.isNull(phone)){
+		alert("电话不能为空！");
+		return;
+	}
+	if(!ydz.isNull(message)){
+		alert("留言不能为空！");
+		return;
+	}
+	
+	ydz.post({
+		url:"/join/insertJoin",
+		data:{
+			name:userName,
+			email:email,
+			phone:phone,
+			message:message
+		},
+		succ:function(data){
+			if(data.code==200){
+				alert("提交成功！");
+			}else{
+				alert(data.message);
+			}
+		}
+	})
+}     
+
+</script>
+
+
+</body>
+</html>
